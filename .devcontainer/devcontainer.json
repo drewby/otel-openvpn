@@ -1,0 +1,31 @@
+{
+  "name": "golang",
+  "dockerFile": "Dockerfile",
+  "extensions": [
+    "golang.go",
+    "ms-azuretools.vscode-docker",
+    "ms-kubernetes-tools.vscode-kubernetes-tools",
+    "GitHub.copilot",
+    "ms-vscode.makefile-tools"
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": {},
+    "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {}
+  },
+  "settings": {
+    "go.toolsManagement.checkForUpdates": "local",
+    "go.useLanguageServer": true,
+    "go.gopath": "/usr/local/go/bin"
+  },
+  // "postCreateCommand": "go mod download",
+  "runArgs": [
+    "-u",
+    "vscode",
+    "--cap-add=SYS_PTRACE",
+    "--security-opt",
+    "seccomp=unconfined",
+    // map SSH keys for Git
+    "-v",
+    "${env:HOME}/.ssh:/home/vscode/.ssh:ro"
+  ]
+}
