@@ -1,0 +1,48 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+  hostmetrics:
+    collection_interval: 15s
+    initial_delay: 1s
+    root_path: /
+    scrapers:
+      cpu:
+      disk:
+      load:
+      filesystem:
+      memory:
+      network:
+      paging:
+      processes:
+
+processors:
+
+
+exporters:
+  debug:
+    verbosity: detailed
+    sampling_initial: 5
+    sampling_thereafter: 200
+
+  otlphttp:
+    auth:
+      authenticator: basicauth/otlp
+    endpoint: <url>
+
+extensions:
+  basicauth/otlp:
+    client_auth:
+      username: <usename>
+      password: <password>
+
+service:
+  extensions: [basicauth/otlp]
+  telemetry:
+    logs:
+      level: "info"
+  pipelines:
+    metrics:
+      receivers: [otlp, hostmetrics]
+      exporters: [otlphttp]
