@@ -22,4 +22,6 @@ otelcol.yaml
 # vendor/
 
 # Go workspace file
-go.work
+go.wobuild
+grafana.txt
+otelcol.yaml
