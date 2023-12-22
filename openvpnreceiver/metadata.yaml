@@ -1,0 +1,44 @@
+type: openvpn
+
+status:
+  class: receiver
+  stability:
+    alpha: [metrics]
+  distributions: [contrib]
+
+attributes:
+  direction:
+    description: Direction of bytes. Either transmit or receive.
+    type: string
+  common.name:
+    description: Name of the VPN client for the connection.
+    enabled: true
+    type: string
+  real.address: 
+    description: The real IP address of the VPN connection.
+    enabled: true
+    type: string
+  real.port:
+    description: The real IP port of the VPN connection.
+    enabled: true
+    type: int
+
+metrics:
+  openvpn.bytes:
+    description: Represents the total number of bytes sent and received by the VPN connection.
+    enabled: true
+    sum:
+      monotonic: true
+      aggregation_temporality: cumulative
+      value_type: int
+    unit: bytes
+    attributes: [direction, common.name, real.address, real.port]
+  openvpn.connections:
+    description: Represents the current number of VPN connections.
+    enabled: true
+    sum:
+      monotonic: false
+      aggregation_temporality: cumulative
+      value_type: int
+    unit: connections
+    attributes: []

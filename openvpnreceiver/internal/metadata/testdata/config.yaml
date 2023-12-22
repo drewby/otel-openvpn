@@ -1,0 +1,13 @@
+default:
+all_set:
+  metrics:
+    openvpn.bytes:
+      enabled: true
+    openvpn.connections:
+      enabled: true
+none_set:
+  metrics:
+    openvpn.bytes:
+      enabled: false
+    openvpn.connections:
+      enabled: false
