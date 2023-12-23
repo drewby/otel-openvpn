@@ -1,5 +1,7 @@
 FROM golang:1.21-bullseye
 
+RUN chmod -R 777 /usr/local/go/bin
+
 ARG USERNAME=vscode
 RUN useradd -m -s /bin/zsh $USERNAME
 USER $USERNAME
