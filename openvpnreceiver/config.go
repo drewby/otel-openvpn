@@ -13,9 +13,9 @@ const (
 	defaultPath = "/var/log/openvpn/status.log"
 )
 
-// Config defines the configuration for the TCP stats receiver.
+// Config defines the configuration for the OpenVPN receiver.
 type Config struct {
-	Path                                    string                   `mapstructure:"path"` // Path to the file to be scraped for metrics (default: /proc/net/tcp)
+	Path                                    string                   `mapstructure:"path"` // Path to the file to be scraped for metrics (default: /var/log/openvpn/status.log)
 	scraperhelper.ScraperControllerSettings `mapstructure:",squash"` // ScraperControllerSettings to configure scraping interval (default: 10s)
 	metadata.MetricsBuilderConfig           `mapstructure:",squash"` // MetricsBuilderConfig to enable/disable specific metrics (default: all enabled)
 }

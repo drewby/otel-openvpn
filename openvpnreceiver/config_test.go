@@ -50,10 +50,10 @@ func TestLoadConfig(t *testing.T) {
 				},
 				MetricsBuilderConfig: metadata.MetricsBuilderConfig{
 					Metrics: metadata.MetricsConfig{
-						TCPQueueLength: metadata.MetricConfig{
+						OpenvpnBytes: metadata.MetricConfig{
 							Enabled: true,
 						},
-						TCPQueueSize: metadata.MetricConfig{
+						OpenvpnConnections: metadata.MetricConfig{
 							Enabled: true,
 						},
 					},
