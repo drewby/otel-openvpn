@@ -15,6 +15,10 @@ processors:
 receivers:
   - gomod: go.opentelemetry.io/collector/receiver/otlpreceiver v0.91.0
   - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/hostmetricsreceiver v0.91.0
+  - gomod: github.com/drewby/openvpnreceiver v0.91.0
+    import: github.com/drewby/openvpnreceiver
+    name: "openvpnreceiver"
+    path: "./openvpnreceiver"
 
 extensions:
   - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/extension/basicauthextension v0.91.0
