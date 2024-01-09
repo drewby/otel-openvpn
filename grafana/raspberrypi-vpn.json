@@ -1153,7 +1153,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "raspberry_pi_thermal_zone_temperature",
+          "expr": "sum by(thermal_zone) (raspberry_pi_thermal_zone_temperature{type=\"cpu-thermal\"})",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -2007,6 +2007,6 @@
   "timezone": "",
   "title": "RaspberryPi VPN",
   "uid": "abda04d4-746c-4a62-b08b-2ef26b67b53c",
-  "version": 12,
+  "version": 15,
   "weekStart": ""
 }
