@@ -1,0 +1,29 @@
+type: pi
+
+status:
+  class: receiver
+  stability:
+    alpha: [metrics]
+  distributions: [contrib]
+
+attributes:
+  type: 
+    description: The type of the thermal zone.
+    enabled: true
+    type: string
+  thermal_zone:
+    description: The thermal zone number.
+    enabled: true
+    type: int
+  
+
+metrics:
+  raspberry.pi.thermal_zone.temperature:
+    description: Raspberry Pi thermal zone temperature
+    enabled: true
+    sum:
+      monotonic: false
+      aggregation_temporality: cumulative
+      value_type: double
+    unit: degrees
+    attributes: [type, thermal_zone]

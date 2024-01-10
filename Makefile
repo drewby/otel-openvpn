@@ -2,7 +2,7 @@
 all: build
 
 .PHONY: build - Build the collector
-build: openvpnreceiver/metadata.go
+build: openvpnreceiver/metadata.go pireceiver/metadata.go
 	builder --config builder-config.yaml
 
 .PHONY: docker - Build docker image
@@ -25,5 +25,10 @@ setup:
 	go install go.opentelemetry.io/collector/cmd/builder@latest
 	go install github.com/open-telemetry/opentelemetry-collector-contrib/cmd/mdatagen@latest
 
+.PHONY: metadata - Generate metadata for openvpnreceiver
 openvpnreceiver/metadata.go: openvpnreceiver/metadata.yaml
 	cd openvpnreceiver && mdatagen metadata.yaml
+
+.PHONY: metadata - Generate metadata for pireceiver
+pireceiver/metadata.go: pireceiver/metadata.yaml
+	cd pireceiver && mdatagen metadata.yaml

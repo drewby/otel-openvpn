@@ -9,6 +9,7 @@ USER $USERNAME
 RUN go install go.opentelemetry.io/collector/cmd/builder@latest
 RUN go install github.com/open-telemetry/opentelemetry-collector-contrib/cmd/mdatagen@latest
 RUN go install golang.org/x/tools/gopls@latest
+RUN go install github.com/go-delve/delve/cmd/dlv@latest
 
 # set up oh-my-zsh
 RUN sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended &> /dev/null

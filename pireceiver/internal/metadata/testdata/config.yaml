@@ -1,0 +1,9 @@
+default:
+all_set:
+  metrics:
+    raspberry.pi.thermal_zone.temperature:
+      enabled: true
+none_set:
+  metrics:
+    raspberry.pi.thermal_zone.temperature:
+      enabled: false
