@@ -3,6 +3,10 @@ receivers:
     protocols:
       grpc:
       http:
+  openvpn:
+    collection_interval: 15s
+  pi:
+    collection_interval: 15s
   hostmetrics:
     collection_interval: 15s
     initial_delay: 1s
@@ -44,5 +48,5 @@ service:
       level: "info"
   pipelines:
     metrics:
-      receivers: [otlp, hostmetrics]
+      receivers: [openvpn, pi, otlp, hostmetrics]
       exporters: [otlphttp]
