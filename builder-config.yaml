@@ -19,6 +19,10 @@ receivers:
     import: github.com/drewby/openvpnreceiver
     name: "openvpnreceiver"
     path: "./openvpnreceiver"
+  - gomod: github.com/drewby/pireceiver v0.91.0
+    import: github.com/drewby/pireceiver
+    name: "pireceiver"
+    path: "./pireceiver"
 
 extensions:
   - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/extension/basicauthextension v0.91.0
