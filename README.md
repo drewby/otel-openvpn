@@ -1,4 +1,4 @@
-# Project Name
+# Monitoring a Raspberry PI OpenVPN Server
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
