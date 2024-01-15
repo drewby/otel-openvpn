@@ -84,7 +84,25 @@ The metrics that drive the visualizations derive from the three receivers config
 
 ## Installation
 
-Instructions on how to install and set up the project.
+The easiest way to get started is to use the [DevContainer](./.devcontainer). To do this with VS Code, first
+clone the repository locally and then open the root folder of ther repository. Make sure 
+the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension is added to VS Code. You will be prompted to *Reopen in Container*. Once the container is created and running use Ctrl+Shift-` to open a terminal.
+
+There is a [Dockerfile](./Dockerfile) in the root of the project that may be used
+to build and export the executable. Although you can modify this
+to also build an image for running as a Docker container, mapping to
+host resources for scraping metrics is required and beyond the scope of this readme.
+
+If you want to install the preqrequisites locally you will need:
+
+* Dev tools including Make
+* [Go 1.21](https://go.dev) or later
+* The following Go modules:
+    * go.opentelemetry.io/collector/cmd/builder@latest
+    * github.com/open-telemetry/opentelemetry-collector-contrib/cmd/mdatagen@latest
+* For developing in VS Code with the [Go extension](https://marketplace.visualstudio.com/items?itemName=golang.go):
+    * golang.org/x/tools/gopls@latest
+    * github.com/go-delve/delve/cmd/dlv@latest
 
 ## Usage
 
