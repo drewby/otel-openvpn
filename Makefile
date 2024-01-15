@@ -1,9 +1,23 @@
+TARGETOS ?= linux
+TARGETARCH ?= arm
+
+ifeq ($(TARGETARCH),arm)
+	TARGETARM ?= 7
+else
+	TARGETARM ?=
+endif
+
+
 .PHONY: all - Default target
 all: build
 
 .PHONY: build - Build the collector
 build: openvpnreceiver/metadata.go pireceiver/metadata.go
-	builder --config builder-config.yaml
+	builder --config builder-config.yaml --name otelcol-dev
+
+.PHONY: release - Build the collector for release targeting TARGETOS and TARGETARCH
+release: openvpnreceiver/metadata.go pireceiver/metadata.go
+	GOOS=$(TARGETOS) GOARCH=$(TARGETARCH) GOARM=$(TARGETARM) builder --config builder-config.yaml --name otelcol-$(TARGETOS)-$(TARGETARCH)
 
 .PHONY: docker - Build the collector using docker
 docker:
