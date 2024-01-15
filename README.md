@@ -106,11 +106,38 @@ If you want to install the preqrequisites locally you will need:
 
 ## Usage
 
-Instructions on how to use the project.
+Make a copy of `otelcol.example.yaml` to `otelcol.yaml` and update
+the settings.
 
-## Contributing
+1. The `otlphttp` exporter `endpoint` needs to be set to the backend OTLP endpoint. 
+2. The `basicauth/otlp` `username` and `password` need defined. 
 
-Guidelines for contributing to the project.
+If you are using Grafana Cloud, there are instructions [here](https://grafana.com/docs/grafana-cloud/send-data/otlp/send-data-otlp/) for how to set these
+options.
+
+The `Makefile` has the following targets:
+
+* `all` - Default target (calls `build`)
+* `build` - Build the collector, using current architecture, output to ./build/otelcol-dev
+* `release` - Build the collector, using target architecture, output to ./build/otelcol-linux-arm
+* `docker` - Build the collector using Docker and target architecture, output to ./build/otelcol-linux-arm
+* `clean` - Clean the build artifacts (delete `./build` directory)
+* `test` - Run tests for `openvpnreciver` and `pireceiver`
+* `setup` - Install dependencies (`builder`, `mdatagen`)
+
+The target architecture for `release` and `docker` can be overridden
+with TARGETOS and TARGETARCH. For example:
+
+```bash
+make release TARGETOS=windows TARGETARCH=amd64
+```
+
+Once you have a binary, you can run it using the following command:
+
+```bash
+./build/otelcol-linux-arm --config otelcol.yaml
+```
+
 
 ## License
 
