@@ -6,8 +6,8 @@ ARG USERNAME=vscode
 RUN useradd -m -s /bin/zsh $USERNAME
 USER $USERNAME
 
-RUN go install go.opentelemetry.io/collector/cmd/builder@latest
-RUN go install github.com/open-telemetry/opentelemetry-collector-contrib/cmd/mdatagen@latest
+RUN go install go.opentelemetry.io/collector/cmd/builder@v0.91.0
+RUN go install github.com/open-telemetry/opentelemetry-collector-contrib/cmd/mdatagen@v0.91.0
 RUN go install golang.org/x/tools/gopls@latest
 RUN go install github.com/go-delve/delve/cmd/dlv@latest
 
