@@ -25,10 +25,8 @@ setup:
 	go install go.opentelemetry.io/collector/cmd/builder@latest
 	go install github.com/open-telemetry/opentelemetry-collector-contrib/cmd/mdatagen@latest
 
-.PHONY: metadata - Generate metadata for openvpnreceiver
 openvpnreceiver/metadata.go: openvpnreceiver/metadata.yaml
 	cd openvpnreceiver && mdatagen metadata.yaml
 
-.PHONY: metadata - Generate metadata for pireceiver
 pireceiver/metadata.go: pireceiver/metadata.yaml
 	cd pireceiver && mdatagen metadata.yaml
