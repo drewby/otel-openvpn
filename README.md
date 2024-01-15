@@ -138,6 +138,17 @@ Once you have a binary, you can run it using the following command:
 ./build/otelcol-linux-arm --config otelcol.yaml
 ```
 
+## Contributing Guidelines
+
+To contribute to this project:
+
+1. **Communicate via Issues**: Use GitHub Issues for discussion.
+2. **Fork and Branch**: Fork the repository and create a new branch for your work.
+3. **Pull Requests Welcome**: Submit pull requests for your contributions.
+4. **Stay Consistent**: Follow the existing code style and conventions.
+5. **Be Respectful**: Engage respectfully with the community.
+
+Thank you for your contributions!
 
 ## License
 
