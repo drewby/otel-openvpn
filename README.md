@@ -42,6 +42,10 @@ The custom distribution will allow users to monitor the performance of OpenVPN s
 
 The example dashboard provided with this custom OpenTelemetry Collector distribution features 19 curated visualizations. These visualizations are organized to prioritize crucial information at the top, facilitating a comprehensive understanding of how different conditions might impact the performance of your OpenVPN server. 
 
+![Example Grafana Dashboard](./docs/example-grafana.png)
+*This Grafana dashboard captures a specific period of network and system activity. Around 8:00-9:00 AM, a single stream was watched remotely, pausing a few times. The brief spike in dropped network packets just before 8:30 AM corresponds to a temporary connection loss from the iPhone, not the Raspberry Pi. At 9:00 AM, the network load increased due to three simultaneous streams initiated from different devices. Finally, at 9:30 AM, a connection to a remote DevContainer on the device and the initiation of a build process are visible, marked by a noticeable increase in CPU, memory, and disk usage, showcasing the system's responsiveness to varying computational demands.*
+
+
 1. **OpenVPN Connections**: This category provides a comprehensive view of the VPN's operational status, showcasing active connections and traffic rates. These visuals are useful for assessing the usage and performance of the VPN server, enabling administrators to monitor user activity and manage network bandwidth effectively.
 
 2. **Network Performance**: This section focuses on the health and efficiency of network interfaces, including VPN tunnels and Ethernet connections. It helps in identifying network bottlenecks, errors, and packet loss, which are vital for maintaining optimal connectivity and ensuring reliable data transmission across the network.
