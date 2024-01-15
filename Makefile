@@ -5,8 +5,10 @@ all: build
 build: openvpnreceiver/metadata.go pireceiver/metadata.go
 	builder --config builder-config.yaml
 
-.PHONY: docker - Build docker image
+.PHONY: docker - Build the collector using docker
 docker:
+	DOCKERBUILD_KIT=1 docker build -o ./build .
+
 .PHONY: test - Run tests
 test: test-openvpnreceiver test-pireceiver
 
