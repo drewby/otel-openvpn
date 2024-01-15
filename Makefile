@@ -7,7 +7,20 @@ build: openvpnreceiver/metadata.go pireceiver/metadata.go
 
 .PHONY: docker - Build docker image
 docker:
-	docker build -t otelcol:latest .
+.PHONY: test - Run tests
+test: test-openvpnreceiver test-pireceiver
+
+.PHONY: test-openvpnreceiver - Run tests for openvpnreceiver
+test-openvpnreceiver:
+	cd openvpnreceiver && go test -v ./...
+
+.PHONY: test-pireceiver - Run tests for pireceiver
+test-pireceiver:
+	cd pireceiver && go test -v ./...
+
+.PHONY: clean - Clean build artifacts
+clean:
+	rm -rf ./build
 
 .PHONY: setup - Install dependencies
 setup:
